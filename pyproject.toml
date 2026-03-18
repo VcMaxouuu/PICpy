@@ -1,0 +1,84 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# ---------------------------------------------------------------------------
+# Project metadata
+# ---------------------------------------------------------------------------
+[project]
+name = "picpy"
+version = "1.0.0"
+description = "PIC — Pivotal Information Criterion for sparse regression and classification"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Sylvain Sardy" },
+    { name = "Maxime van Cutsem" },
+    { name = "Sara van de Geer" },
+]
+keywords = [
+    "statistics",
+    "regression",
+    "regularisation",
+    "lasso",
+    "high-dimensional",
+    "GLM",
+    "variable selection",
+    "survival analysis",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+
+# Core runtime dependencies — always required
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=1.5",
+    "scipy>=1.10",
+]
+
+# ---------------------------------------------------------------------------
+# Optional extras
+# ---------------------------------------------------------------------------
+[project.optional-dependencies]
+# Visualisation (requires SciencePlots for the PIC theme)
+visuals = [
+    "matplotlib>=3.7",
+    "scienceplots>=2.0",
+]
+# Development tools
+dev = [
+    "pytest>=7",
+    "pytest-cov",
+    "jupyter",
+    "matplotlib>=3.7",
+    "scienceplots>=2.0",
+]
+
+# ---------------------------------------------------------------------------
+# URLs
+# ---------------------------------------------------------------------------
+[project.urls]
+Paper      = "https://arxiv.org/abs/2603.04172"
+
+# ---------------------------------------------------------------------------
+# Build targets
+# ---------------------------------------------------------------------------
+[tool.hatch.build.targets.wheel]
+packages = ["picpy"]
+
+# ---------------------------------------------------------------------------
+# Test configuration
+# ---------------------------------------------------------------------------
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts   = "-v --tb=short"
