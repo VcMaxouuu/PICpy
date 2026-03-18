@@ -26,7 +26,7 @@ pip install numpy pandas scipy matplotlib scienceplots
 Clone and run from the repository root (formal packaging in progress):
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/VcMaxouuu/PICpy/tree/main
 cd PIC
 python examples.ipynb   # or: jupyter notebook examples.ipynb
 ```
